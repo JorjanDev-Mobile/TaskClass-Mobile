@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TaskClass</string>
+    <string name="ErrorMsgAddTask">error adding task</string>
+    <string name="ErrorMsgUpdateTask">Error updating task</string>
+    <string name="ErrorMsgDeleteTask">Error deleting task</string>
+    <string name="ErrorMsgAllTasks">Error getting task list</string>
+    <string name="ErrorMsgGetByIdTask">Error getting task by ID</string>
+    <string name="ErrorMsgTasksByCourse">Error getting assignments by course</string>
+    <string name="ErrorMsgTasksByStatus">Error filtering tasks by status</string>
+    <string name="ErrorMsgMarkDone">Error marking task as completed</string>
+</resources>
