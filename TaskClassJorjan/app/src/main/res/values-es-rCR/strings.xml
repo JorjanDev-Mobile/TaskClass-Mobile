@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TaskClass</string>
+    <string name="ErrorMsgAddTask">Error al agregar la tarea</string>
+    <string name="ErrorMsgUpdateTask">Error al actualizar la tarea</string>
+    <string name="ErrorMsgDeleteTask">Error al eliminar la tarea</string>
+    <string name="ErrorMsgAllTasks">Error al obtener la lista de tareas</string>
+    <string name="ErrorMsgGetByIdTask">Error al obtener la tarea por Id</string>
+    <string name="ErrorMsgTasksByCourse">Error al obtener tareas por curso</string>
+    <string name="ErrorMsgTasksByStatus">Error al filtrar tareas por estado</string>
+    <string name="ErrorMsgMarkDone">Error al marcar tarea como completada</string>
+</resources>
