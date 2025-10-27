@@ -1,2 +1,0 @@
-# TaskClass-Mobile
-Proyecto Individual
