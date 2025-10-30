@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#F0EEEE"
+    tools:context=".ActivityAdd">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-16dp">
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.1"
+            app:srcCompat="@drawable/unnamed__2__removebg_preview"
+            tools:layout_editor_absoluteX="4dp"
+            tools:layout_editor_absoluteY="91dp" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="4dp"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#922E2E"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="619dp" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar3"
+            android:layout_width="311dp"
+            android:layout_height="62dp"
+            android:background="#E2D8D8"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="445dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="160dp"
+            tools:layout_editor_absoluteY="482dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="124dp"
+            tools:layout_editor_absoluteY="455dp" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="45dp"
+            android:layout_height="42dp"
+            android:layerType="software"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="60dp"
+            tools:layout_editor_absoluteY="459dp" />
+
+        <Button
+            android:id="@+id/btn_save_add"
+            android:layout_width="236dp"
+            android:layout_height="74dp"
+            android:backgroundTint="#2167F3"
+            android:text="@string/btnSave"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="90dp"
+            tools:layout_editor_absoluteY="641dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="31dp"
+            android:layout_height="46dp"
+            android:tint="#2167F3"
+            app:srcCompat="@drawable/calendar"
+            tools:layout_editor_absoluteX="370dp"
+            tools:layout_editor_absoluteY="293dp" />
+
+        <EditText
+            android:id="@+id/DeliveryD_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            tools:layout_editor_absoluteX="116dp"
+            tools:layout_editor_absoluteY="158dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TxtAddDate"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="320dp" />
+
+        <EditText
+            android:id="@+id/description_add"
+            android:layout_width="254dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            tools:layout_editor_absoluteX="116dp"
+            tools:layout_editor_absoluteY="294dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TxtAddDescription"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="251dp" />
+
+        <EditText
+            android:id="@+id/subTitle_add"
+            android:layout_width="254dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:inputType="text"
+            tools:layout_editor_absoluteX="116dp"
+            tools:layout_editor_absoluteY="225dp" />
+
+        <EditText
+            android:id="@+id/Title_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            tools:layout_editor_absoluteX="113dp"
+            tools:layout_editor_absoluteY="97dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtAddTitle"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="35dp"
+            tools:layout_editor_absoluteY="109dp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="66dp"
+            android:layout_height="32dp"
+            android:text="@string/btnAttach"
+            tools:layout_editor_absoluteX="329dp"
+            tools:layout_editor_absoluteY="369dp" />
+
+        <RadioButton
+            android:id="@+id/radioButton14"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="323dp"
+            tools:layout_editor_absoluteY="467dp" />
+
+        <ImageView
+            android:id="@+id/btnAttach_add"
+            android:layout_width="26dp"
+            android:layout_height="28dp"
+            android:tint="#2167F3"
+            app:srcCompat="@drawable/attach"
+            tools:layout_editor_absoluteX="300dp"
+            tools:layout_editor_absoluteY="369dp" />
+
+        <RadioButton
+            android:id="@+id/radioButton15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="323dp"
+            tools:layout_editor_absoluteY="445dp" />
+
+        <CheckBox
+            android:id="@+id/Reminder_add"
+            android:layout_width="109dp"
+            android:layout_height="28dp"
+            android:text="@string/btnReminder"
+            tools:layout_editor_absoluteX="275dp"
+            tools:layout_editor_absoluteY="558dp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="77dp"
+            android:layout_height="33dp"
+            android:text="@string/btnCourse"
+            tools:layout_editor_absoluteX="60dp"
+            tools:layout_editor_absoluteY="558dp" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="36dp"
+            android:layout_height="25dp"
+            android:tint="#2167F3"
+            app:srcCompat="@drawable/course"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="558dp" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="417dp"
+            android:layout_height="76dp"
+            android:background="?attr/colorPrimary"
+            android:backgroundTint="#2167F3"
+            android:layerType="none"
+            android:minHeight="?attr/actionBarSize"
+            android:textAlignment="textStart"
+            android:textDirection="anyRtl"
+            android:theme="?attr/actionBarTheme"
+            app:title="@string/TxtTitle"
+            app:titleMarginStart="160dp"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+            app:titleTextColor="#FFF8F8"
+            tools:layout_editor_absoluteX="-3dp"
+            tools:layout_editor_absoluteY="-3dp" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="42dp"
+            android:layout_height="33dp"
+            android:tint="#FFFFFF"
+            app:srcCompat="@drawable/return_page"
+            tools:layout_editor_absoluteX="18dp"
+            tools:layout_editor_absoluteY="25dp" />
+
+        <androidx.constraintlayout.helper.widget.Layer android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <androidx.constraintlayout.helper.widget.Layer android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <androidx.constraintlayout.helper.widget.Layer android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <androidx.constraintlayout.helper.widget.Layer android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
