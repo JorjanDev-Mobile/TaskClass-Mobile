@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TaskClass</string>
+    <string name="ErrorMsgAddTask">Error al agregar tarea</string>
+    <string name="ErrorMsgUpdateTask">Error al actualizar la tarea</string>
+    <string name="ErrorMsgDeleteTask">Error al eliminar la tarea</string>
+    <string name="ErrorMsgAllTasks">Error al obtener la lista de tareas</string>
+    <string name="ErrorMsgGetByIdTask">Error al obtener la tarea por Id</string>
+    <string name="ErrorMsgTasksByCourse">Error al obtener tareas por curso</string>
+    <string name="ErrorMsgTasksByStatus">Error al filtrar tareas por estado</string>
+    <string name="ErrorMsgMarkDone">Error al marcar tarea como completada</string>
+    <string name="btnAddWork">Agregar Trabajo</string>
+    <string name="btnSave">Guardar</string>
+    <string name="btnAllCourses">Todos</string>
+    <string name="btnCourse1">Curso 1</string>
+    <string name="btnCourse2">Curso 2</string>
+    <string name="btnClose">Cerrrar</string>
+    <string name="btnView">Ver</string>
+    <string name="btnOk">Ok</string>
+    <string name="btnCancel">Cancelar</string>
+    <string name="btnDelete">Eliminar</string>
+    <string name="TxtMessage">No hay ninguna tarea agregada.</string>
+    <string name="TxtTitle">TaskClass</string>
+    <string name="TxtTitle2">Agregar Tarea</string>
+    <string name="TxtTitle3">Eliminar Tarea</string>
+    <string name="txtAddTitle">Titulo</string>
+    <string name="TxtAddDescription">"Descripción "</string>
+    <string name="TxtAddDate">Fecha de entrega</string>
+    <string name="btnCourse">Curso</string>
+    <string name="btnReminder">Recordatorio</string>
+    <string name="btnAttach">Adjuntar</string>
+    <string name="TxtCamera">Tomar foto</string>
+    <string name="TxtGallery">"Seleccionar desde la galería "</string>
+</resources>
