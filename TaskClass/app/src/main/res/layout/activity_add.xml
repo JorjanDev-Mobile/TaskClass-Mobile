@@ -1,252 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/root_add"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#F0EEEE"
+    android:background="#FFFFFF"
     tools:context=".ActivityAdd">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="-16dp">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_add"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#2167F3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:navigationIconTint="#FFFFFF"
+        app:title="Add Task"
+        app:titleTextColor="#FFFFFF" />
 
-        <ImageView
-            android:id="@+id/imageView13"
-            android:layout_width="wrap_content"
+    <!-- ScrollView -->
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_add"
+        app:layout_constraintBottom_toTopOf="@id/btn_save_add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:alpha="0.1"
-            app:srcCompat="@drawable/unnamed__2__removebg_preview"
-            tools:layout_editor_absoluteX="4dp"
-            tools:layout_editor_absoluteY="91dp" />
+            android:paddingHorizontal="24dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="16dp">
 
-        <View
-            android:id="@+id/divider"
-            android:layout_width="409dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="4dp"
-            android:background="?android:attr/listDivider"
-            android:backgroundTint="#922E2E"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="619dp" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar3"
-            android:layout_width="311dp"
-            android:layout_height="62dp"
-            android:background="#E2D8D8"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            tools:layout_editor_absoluteX="50dp"
-            tools:layout_editor_absoluteY="445dp" />
+            <TextView
+                android:id="@+id/tv_title_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtAddTitle"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="160dp"
-            tools:layout_editor_absoluteY="482dp" />
+            <EditText
+                android:id="@+id/et_title_add"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:hint="Título"
+                android:background="@drawable/edittext_rounded_blue"
+                android:padding="16dp"
+                android:inputType="textCapSentences"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="124dp"
-            tools:layout_editor_absoluteY="455dp" />
+            <TextView
+                android:id="@+id/tv_description_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/TxtAddDescription"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_title_add" />
 
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="45dp"
-            android:layout_height="42dp"
-            android:layerType="software"
-            android:visibility="visible"
-            tools:layout_editor_absoluteX="60dp"
-            tools:layout_editor_absoluteY="459dp" />
+            <EditText
+                android:id="@+id/et_description_add"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:hint="Descripción"
+                android:background="@drawable/edittext_rounded_blue"
+                android:padding="16dp"
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/tv_description_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp" />
 
-        <Button
-            android:id="@+id/btn_save_add"
-            android:layout_width="236dp"
-            android:layout_height="74dp"
-            android:backgroundTint="#2167F3"
-            android:text="@string/btnSave"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="90dp"
-            tools:layout_editor_absoluteY="641dp" />
+            <TextView
+                android:id="@+id/tv_due_date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/TxtAddDate"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_description_add" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="31dp"
-            android:layout_height="46dp"
-            android:tint="#2167F3"
-            app:srcCompat="@drawable/calendar"
-            tools:layout_editor_absoluteX="370dp"
-            tools:layout_editor_absoluteY="293dp" />
+            <EditText
+                android:id="@+id/et_due_date_add"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:hint="Seleccionar fecha"
+                android:background="@drawable/edittext_rounded_blue"
+                android:padding="16dp"
+                android:focusable="false"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/tv_due_date_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_calendar"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp" />
 
-        <EditText
-            android:id="@+id/DeliveryD_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date"
-            tools:layout_editor_absoluteX="116dp"
-            tools:layout_editor_absoluteY="158dp" />
+            <ImageButton
+                android:id="@+id/btn_calendar"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/btn_calendar_rounded"
+                android:scaleType="center"
+                android:padding="12dp"
+                app:srcCompat="@drawable/ic_calendar"
+                app:tint="#2167F3"
+                android:contentDescription="Calendario"
+                app:layout_constraintTop_toTopOf="@id/et_due_date_add"
+                app:layout_constraintBottom_toBottomOf="@id/et_due_date_add"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TxtAddDate"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="320dp" />
+            <CheckBox
+                android:id="@+id/cb_reminder_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text=" Reminder"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_due_date_add" />
 
-        <EditText
-            android:id="@+id/description_add"
-            android:layout_width="254dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            tools:layout_editor_absoluteX="116dp"
-            tools:layout_editor_absoluteY="294dp" />
+            <TextView
+                android:id="@+id/tv_course_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="#E3F2FD"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="@string/btnCourse"
+                android:textColor="#2167F3"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cb_reminder_add" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TxtAddDescription"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="251dp" />
+            <ImageButton
+                android:id="@+id/btn_attach_photo"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/btn_attach_rounded"
+                android:contentDescription="Adjuntar foto"
+                android:padding="14dp"
+                android:scaleType="center"
+                app:layout_constraintBottom_toBottomOf="@id/tv_course_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_course_label"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/ic_attach"
+                app:tint="#2167F3" />
 
-        <EditText
-            android:id="@+id/subTitle_add"
-            android:layout_width="254dp"
-            android:layout_height="50dp"
-            android:ems="10"
-            android:inputType="text"
-            tools:layout_editor_absoluteX="116dp"
-            tools:layout_editor_absoluteY="225dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
-        <EditText
-            android:id="@+id/Title_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            tools:layout_editor_absoluteX="113dp"
-            tools:layout_editor_absoluteY="97dp" />
+    <Button
+        android:id="@+id/btn_save_add"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#2167F3"
+        android:text="@string/btnSave"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/txtAddTitle"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="35dp"
-            tools:layout_editor_absoluteY="109dp" />
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:backgroundTint="#2166F1"
+        android:tint="@color/white"
+        app:srcCompat="@drawable/return_page"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-3dp" />
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="66dp"
-            android:layout_height="32dp"
-            android:text="@string/btnAttach"
-            tools:layout_editor_absoluteX="329dp"
-            tools:layout_editor_absoluteY="369dp" />
-
-        <RadioButton
-            android:id="@+id/radioButton14"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="323dp"
-            tools:layout_editor_absoluteY="467dp" />
-
-        <ImageView
-            android:id="@+id/btnAttach_add"
-            android:layout_width="26dp"
-            android:layout_height="28dp"
-            android:tint="#2167F3"
-            app:srcCompat="@drawable/attach"
-            tools:layout_editor_absoluteX="300dp"
-            tools:layout_editor_absoluteY="369dp" />
-
-        <RadioButton
-            android:id="@+id/radioButton15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="323dp"
-            tools:layout_editor_absoluteY="445dp" />
-
-        <CheckBox
-            android:id="@+id/Reminder_add"
-            android:layout_width="109dp"
-            android:layout_height="28dp"
-            android:text="@string/btnReminder"
-            tools:layout_editor_absoluteX="275dp"
-            tools:layout_editor_absoluteY="558dp" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="77dp"
-            android:layout_height="33dp"
-            android:text="@string/btnCourse"
-            tools:layout_editor_absoluteX="60dp"
-            tools:layout_editor_absoluteY="558dp" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="36dp"
-            android:layout_height="25dp"
-            android:tint="#2167F3"
-            app:srcCompat="@drawable/course"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="558dp" />
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="417dp"
-            android:layout_height="76dp"
-            android:background="?attr/colorPrimary"
-            android:backgroundTint="#2167F3"
-            android:layerType="none"
-            android:minHeight="?attr/actionBarSize"
-            android:textAlignment="textStart"
-            android:textDirection="anyRtl"
-            android:theme="?attr/actionBarTheme"
-            app:title="@string/TxtTitle"
-            app:titleMarginStart="160dp"
-            app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
-            app:titleTextColor="#FFF8F8"
-            tools:layout_editor_absoluteX="-3dp"
-            tools:layout_editor_absoluteY="-3dp" />
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="42dp"
-            android:layout_height="33dp"
-            android:tint="#FFFFFF"
-            app:srcCompat="@drawable/return_page"
-            tools:layout_editor_absoluteX="18dp"
-            tools:layout_editor_absoluteY="25dp" />
-
-        <androidx.constraintlayout.helper.widget.Layer android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <androidx.constraintlayout.helper.widget.Layer android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <androidx.constraintlayout.helper.widget.Layer android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <androidx.constraintlayout.helper.widget.Layer android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
