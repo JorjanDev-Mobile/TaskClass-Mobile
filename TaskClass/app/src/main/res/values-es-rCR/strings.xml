@@ -9,7 +9,7 @@
     <string name="ErrorMsgTasksByCourse">Error al obtener tareas por curso</string>
     <string name="ErrorMsgTasksByStatus">Error al filtrar tareas por estado</string>
     <string name="ErrorMsgMarkDone">Error al marcar tarea como completada</string>
-    <string name="btnAddWork">Agregar Trabajo</string>
+    <string name="btnAddWork">+</string>
     <string name="btnSave">Guardar</string>
     <string name="btnAllCourses">Todos</string>
     <string name="btnCourse1">Curso 1</string>
@@ -31,4 +31,6 @@
     <string name="btnAttach">Adjuntar</string>
     <string name="TxtCamera">Tomar foto</string>
     <string name="TxtGallery">"Seleccionar desde la galería "</string>
+    <string name="course_label">Curso: %1$s</string>
+    <string name="no_course">Sin Curso</string>
 </resources>

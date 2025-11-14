@@ -1,136 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/Search_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FBFBFB"
-    android:backgroundTint="#FAF7F7"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Imagen de fondo -->
         <ImageView
             android:id="@+id/imageView12"
             android:layout_width="420dp"
             android:layout_height="499dp"
             android:alpha="0.1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/unnamed__2__removebg_preview"
-            tools:layout_editor_absoluteX="-5dp"
-            tools:layout_editor_absoluteY="151dp" />
+            tools:layout_editor_absoluteX="-5dp" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="38dp"
-            android:layout_height="32dp"
-            android:tint="#2167F3"
-            app:srcCompat="@drawable/notification"
-            tools:layout_editor_absoluteX="49dp"
-            tools:layout_editor_absoluteY="19dp" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="39dp"
-            android:layout_height="32dp"
-            android:tint="#2167F3"
-            app:srcCompat="@drawable/menu"
-            tools:layout_editor_absoluteX="10dp"
-            tools:layout_editor_absoluteY="19dp" />
-
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="40dp"
-            android:layout_height="36dp"
-            android:background="#FAFCFF"
-            android:backgroundTint="#FFFFFF"
-            android:tint="#2167F3"
-            app:srcCompat="@drawable/account"
-            tools:layout_editor_absoluteX="340dp"
-            tools:layout_editor_absoluteY="19dp" />
-
-        <TextView
-            android:id="@+id/textView7"
-            style="@style/Widget.MaterialComponents.Snackbar.TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TxtMessage"
-            android:textColor="#000000"
-            android:textColorHighlight="#EBD7D7"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.519" />
-
-        <Button
-            android:id="@+id/btnCourse1_main"
-            android:layout_width="108dp"
-            android:layout_height="39dp"
-            android:backgroundTint="#194AA8"
-            android:text="@string/btnAllCourses"
-            android:textColorHint="#6B0F0F"
-            android:textColorLink="#872828"
-            tools:layout_editor_absoluteX="31dp"
-            tools:layout_editor_absoluteY="112dp" />
-
-        <SearchView
-            android:id="@+id/searchView_main"
-            android:layout_width="349dp"
-            android:layout_height="30dp"
-            android:background="#D1C4C4"
-            android:backgroundTint="#DCD9D9"
-            tools:layout_editor_absoluteX="31dp"
-            tools:layout_editor_absoluteY="66dp" />
-
-        <Button
-            android:id="@+id/addWork_main"
-            android:layout_width="64dp"
-            android:layout_height="74dp"
-            android:backgroundTint="#2167F3"
-            android:text="@string/btnAddWork"
-            android:textColor="#F2F2F2"
-            android:textColorLink="#BA1B1B"
-            android:textSize="24sp"
-            app:iconTint="#AB3C3C"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.953"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.949" />
-
+        <!-- Título -->
         <TextView
             android:id="@+id/Tittle_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/TxtTitle"
             android:textSize="20sp"
-            tools:layout_editor_absoluteX="159dp"
-            tools:layout_editor_absoluteY="24dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp" />
+
+        <!-- SearchView -->
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView_main"
+            android:layout_width="349dp"
+            android:layout_height="30dp"
+            android:background="#D1C4C4"
+            android:queryHint="Buscar..."
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="66dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginEnd="31dp" />
+
+        <!-- Botones de filtro -->
+        <Button
+            android:id="@+id/btnAllCourse_main"
+            android:layout_width="108dp"
+            android:layout_height="39dp"
+            android:backgroundTint="#194AA8"
+            android:text="@string/btnAllCourses"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.102"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.179" />
+
+        <Button
+            android:id="@+id/btnCourse1_main"
+            android:layout_width="108dp"
+            android:layout_height="39dp"
+            android:backgroundTint="#2167F3"
+            android:text="@string/btnCourse1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.179" />
 
         <Button
             android:id="@+id/btnCourse2_main"
             android:layout_width="108dp"
             android:layout_height="39dp"
             android:backgroundTint="#2167F3"
-            android:text="@string/btnCourse1"
-            tools:layout_editor_absoluteX="151dp"
-            tools:layout_editor_absoluteY="112dp" />
-
-        <Button
-            android:id="@+id/btnCourse3_main"
-            android:layout_width="108dp"
-            android:layout_height="39dp"
-            android:backgroundTint="#2167F3"
             android:text="@string/btnCourse2"
-            tools:layout_editor_absoluteX="272dp"
-            tools:layout_editor_absoluteY="112dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.897"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.179" />
+
+        <!-- RECYCLERVIEW (CORREGIDO: SOLO CAMBIO DE ANCLA) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_tasks"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="16dp"
+            android:clipToPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/btnCourse2_main"
+            app:layout_constraintBottom_toTopOf="@id/addWork_main"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/tv_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No hay ninguna tarea agregada."
+            android:textSize="16sp"
+            android:textColor="#888888"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone" />
+
+        <!-- Botón + -->
+        <Button
+            android:id="@+id/addWork_main"
+            android:layout_width="64dp"
+            android:layout_height="74dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="#2167F3"
+            android:text="@string/btnAddWork"
+            android:textColor="#F2F2F2"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Botones de menú -->
+        <ImageButton
+            android:id="@+id/btnMenu_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="#2167F3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.044"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.01"
+            app:srcCompat="@drawable/menu" />
+
+        <ImageButton
+            android:id="@+id/btnNotification_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="#2167F3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.176"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.01"
+            app:srcCompat="@drawable/notification" />
+
+        <ImageButton
+            android:id="@+id/btnAccount_main"
+            android:layout_width="62dp"
+            android:layout_height="53dp"
+            android:tint="#2167F3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.954"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.01"
+            app:srcCompat="@drawable/account" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

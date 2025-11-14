@@ -25,9 +25,11 @@
     <string name="txtAddTitle">Title:</string>
     <string name="TxtAddDescription">Description:</string>
     <string name="TxtAddDate">Delivery Date:</string>
-    <string name="btnCourse">Course</string>
+    <string name="btnCourse">Course:</string>
     <string name="btnReminder">Reminder</string>
     <string name="btnAttach">Attach</string>
     <string name="TxtCamera">Take photo</string>
     <string name="TxtGallery">Select from gallery</string>
+    <string name="course_label">Course: %1$s</string>
+    <string name="no_course">Not Course</string>
 </resources>
