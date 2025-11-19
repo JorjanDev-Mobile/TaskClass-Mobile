@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <!-- Permisos para cámara y almacenamiento -->
-    <uses-permission android:name="android.permission.CAMERA" /> <!-- Permisos para notificacion -->
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Permisos para alarma -->
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -26,7 +27,7 @@
             android:name=".ActivityNotDeleteW"
             android:exported="false" />
         <activity
-            android:name=".ActivityPhoto"
+            android:name=".EditTaskActivity"
             android:exported="false" />
         <activity
             android:name=".ActivityDeleteWork"

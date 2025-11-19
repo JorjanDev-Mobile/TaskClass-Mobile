@@ -1,18 +1,20 @@
 package Entity
 
+import java.io.Serializable
 import java.util.Date
 
-class Task {
+class Task : Serializable {
 
     private var id: String = ""
     private var title: String = ""
-    private var description: String = ""
+    private var description: String? = ""
     private var dueDate: Date? = null
     private var course: Course? = null
     private var status: TaskStatus = TaskStatus.PENDING
     private var images: MutableList<ImageData> = mutableListOf()
     private var reminderScheduled: Boolean = false
     var Delivered: Boolean = false
+    var hasReminder: Boolean = false
 
     constructor()
 
@@ -24,7 +26,8 @@ class Task {
         course: Course?,
         status: TaskStatus,
         images: MutableList<ImageData>,
-        reminderScheduled: Boolean
+        reminderScheduled: Boolean,
+        hasReminder: Boolean
     ) {
         this.id = id
         this.title = title
@@ -45,7 +48,7 @@ class Task {
         get() = this.title
         set(value) { this.title = value }
 
-    var Description: String
+    var Description: String?
         get() = this.description
         set(value) { this.description = value }
 

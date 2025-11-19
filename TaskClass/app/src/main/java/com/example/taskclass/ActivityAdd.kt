@@ -2,17 +2,22 @@ package com.example.taskclass
 
 import Controller.TaskController
 import Entity.Course
+import Entity.ImageData
 import Entity.Task
 import Entity.TaskStatus
+import android.Manifest
 import android.app.DatePickerDialog
+import android.graphics.Bitmap
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
+import java.io.File
+import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,10 +29,41 @@ class ActivityAdd : AppCompatActivity() {
     private lateinit var tvCourse: TextView
     private lateinit var btnSave: Button
     private lateinit var btnBack: ImageButton
-
+    private lateinit var btnAttachPhoto: ImageButton
     private lateinit var taskController: TaskController
     private var selectedDate: Date? = null
     private var selectedCourse: Course? = null
+    private val tempImages = mutableListOf<ImageData>()
+
+    private val takePhoto = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) { bitmap: Bitmap? ->
+        if (bitmap != null) {
+            val file = File(externalCacheDir, "IMG_${System.currentTimeMillis()}.jpg")
+            FileOutputStream(file).use { out ->
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
+            }
+
+            tempImages.add(ImageData(uri = file.toURI().toString()))
+            Toast.makeText(this, "Photo taken", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "The photo could not be taken.", Toast.LENGTH_SHORT).show()
+        }
+    }
+    private val pickFromGallery = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        uri?.let {
+            tempImages.add(ImageData(uri = it.toString()))
+            Toast.makeText(this, "Gallery photo added", Toast.LENGTH_SHORT).show()
+        }
+    }
+    private val requestCameraPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        if (granted) {
+            takePhoto.launch(null)
+        } else {
+            Toast.makeText(this, "Camera permit required", Toast.LENGTH_LONG).show()
+        }
+    }
+    private val requestGalleryPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        if (granted) pickFromGallery.launch("image/*")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,60 +75,63 @@ class ActivityAdd : AppCompatActivity() {
         tvCourse = findViewById(R.id.tv_course_label)
         btnSave = findViewById(R.id.btn_save_add)
         btnBack = findViewById(R.id.btn_back)
-
+        btnAttachPhoto = findViewById(R.id.btn_attach_photo)
         taskController = TaskController(this)
 
         setupCalendar()
         tvCourse.setOnClickListener { showCourseDialog() }
         btnSave.setOnClickListener { saveTask() }
+        btnBack.setOnClickListener { finish() }
 
-        btnBack.setOnClickListener {
-            finish()
+        btnAttachPhoto.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Attach photo")
+                .setItems(arrayOf("Camera", "Gallery", "Cancel")) { _, which ->
+                    when (which) {
+                        0 -> requestCameraPermission.launch(Manifest.permission.CAMERA)
+                        1 -> requestGalleryPermission.launch(
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+                                Manifest.permission.READ_MEDIA_IMAGES
+                            else
+                                Manifest.permission.READ_EXTERNAL_STORAGE
+                        )
+                    }
+                }
+                .show()
         }
     }
 
     private fun setupCalendar() {
         btnCalendar.setOnClickListener {
             val calendar = Calendar.getInstance()
-            val year = calendar.get(Calendar.YEAR)
-            val month = calendar.get(Calendar.MONTH)
-            val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-            DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-                val cal = Calendar.getInstance()
-                cal.set(selectedYear, selectedMonth, selectedDay)
+            DatePickerDialog(this, { _, y, m, d ->
+                val cal = Calendar.getInstance().apply { set(y, m, d) }
                 selectedDate = cal.time
-
-                val format = SimpleDateFormat("MMM dd", Locale.ENGLISH)
-                etDueDate.setText(format.format(selectedDate!!))
-            }, year, month, day).show()
+                etDueDate.setText(SimpleDateFormat("MMM dd", Locale.ENGLISH).format(selectedDate!!))
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show()
         }
     }
 
     private fun showCourseDialog() {
         val allTasks = taskController.getAll()
         val courses = allTasks.mapNotNull { it.Course }.distinctBy { it.id }
-        val courseNames = courses.map { it.name }.toMutableList()
-        courseNames.add("Other...")
+        val names = courses.map { it.name }.toMutableList().apply { add("Other...") }
 
         AlertDialog.Builder(this)
-            .setTitle("Select a course")
-            .setItems(courseNames.toTypedArray()) { _, which ->
-                val name = courseNames[which]
-                if (name == "Other...") {
-                    showCustomCourseDialog()
-                } else {
-                    selectedCourse = courses.find { it.name == name }
-                    tvCourse.text = "Course: $name"
+            .setTitle("Select course")
+            .setItems(names.toTypedArray()) { _, which ->
+                if (names[which] == "Other...") showCustomCourseDialog()
+                else {
+                    selectedCourse = courses[which]
+                    tvCourse.text = "Course: ${names[which]}"
                 }
-            }
-            .show()
+            }.show()
     }
 
     private fun showCustomCourseDialog() {
-        val input = EditText(this).apply { hint = "Course name" }
+        val input = EditText(this).apply { hint = "Name of the course" }
         AlertDialog.Builder(this)
-            .setTitle("Custom course")
+            .setTitle("Personalized course")
             .setView(input)
             .setPositiveButton("Accept") { _, _ ->
                 val name = input.text.toString().trim()
@@ -119,10 +158,12 @@ class ActivityAdd : AppCompatActivity() {
             Course = selectedCourse
             Status = TaskStatus.PENDING
             Delivered = false
+            Images = tempImages.toMutableList()
         }
+        task.Images = tempImages.toMutableList()
 
         taskController.add(task)
-        Toast.makeText(this, "Task saved", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Saved task", Toast.LENGTH_SHORT).show()
         setResult(RESULT_OK)
         finish()
     }
