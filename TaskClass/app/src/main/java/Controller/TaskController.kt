@@ -1,13 +1,13 @@
 package Controller
 
-import android.content.Context
 import Data.IDataManagerTask
 import Data.SharedPrefsTaskManager
 import Entity.Course
 import Entity.Task
-import Entity.TaskStatus
+import android.content.Context
 
 class TaskController(private val context: Context) {
+
     private val dataManager: IDataManagerTask = SharedPrefsTaskManager(context)
 
     fun add(task: Task) {
@@ -28,5 +28,10 @@ class TaskController(private val context: Context) {
 
     fun getTasksByCourse(courseName: String): List<Task> {
         return getAll().filter { it.Course?.name == courseName }
+    }
+
+    fun delete(task: Task) {
+        val updatedList = dataManager.getAll().filter { it.Id != task.Id }
+        (dataManager as SharedPrefsTaskManager).saveAll(updatedList)
     }
 }

@@ -3,6 +3,7 @@ package com.example.taskclass
 import Controller.TaskController
 import Entity.Task
 import Entity.TaskStatus
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -33,6 +34,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private val editTaskLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            loadTasks()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -48,22 +55,25 @@ class MainActivity : AppCompatActivity() {
 
         recyclerTasks.layoutManager = LinearLayoutManager(this)
         taskAdapter = TaskAdapter(
-            allTasks,
+            tasks = allTasks,
             onTaskClick = { task ->
-                Toast.makeText(this, "Task: ${task.Title}", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this@MainActivity, EditTaskActivity::class.java)
+                intent.putExtra("TASK_ID", task.Id)
+                editTaskLauncher.launch(intent)
             },
-            onCompleteToggle = { task, completed ->
-                task.Status = if (completed) TaskStatus.COMPLETED else TaskStatus.PENDING
+            onCompleteToggle = { task, isCompleted ->
+                task.Status = if (isCompleted) TaskStatus.COMPLETED else TaskStatus.PENDING
                 taskController.update(task)
-                refreshAll()
+                loadTasks()
             },
-            onDeliveredToggle = { task, delivered ->
-                task.Delivered = delivered
+            onDeliveredToggle = { task, isChecked ->
+                task.Delivered = isChecked
                 taskController.update(task)
-                refreshAll()
+                loadTasks()
             }
         )
-        recyclerTasks.adapter = taskAdapter
+
+        findViewById<RecyclerView>(R.id.recycler_tasks).adapter = taskAdapter
 
         refreshAll()
 
@@ -81,10 +91,11 @@ class MainActivity : AppCompatActivity() {
         loadCourses()
     }
 
-    private fun loadTasks() {
+    private fun loadTasks(){
         val tasks = taskController.getAll()
         allTasks.clear()
         allTasks.addAll(tasks)
+
         taskAdapter.updateTasks(allTasks)
 
         tvEmpty.visibility = if (tasks.isEmpty()) View.VISIBLE else View.GONE

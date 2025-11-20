@@ -25,7 +25,7 @@
             tools:layout_editor_absoluteX="-5dp" />
 
 
-        <!-- Título -->
+
         <TextView
             android:id="@+id/Tittle_main"
             android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="24dp" />
 
-        <!-- SearchView -->
+
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView_main"
             android:layout_width="349dp"
@@ -51,7 +51,6 @@
             android:layout_marginStart="31dp"
             android:layout_marginEnd="31dp" />
 
-        <!-- Botones de filtro -->
         <Button
             android:id="@+id/btnAllCourse_main"
             android:layout_width="108dp"
@@ -92,7 +91,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.179" />
 
-        <!-- RECYCLERVIEW (CORREGIDO: SOLO CAMBIO DE ANCLA) -->
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_tasks"
             android:layout_width="0dp"
@@ -119,7 +118,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:visibility="gone" />
 
-        <!-- Botón + -->
         <Button
             android:id="@+id/addWork_main"
             android:layout_width="64dp"
@@ -133,7 +131,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Botones de menú -->
         <ImageButton
             android:id="@+id/btnMenu_main"
             android:layout_width="wrap_content"

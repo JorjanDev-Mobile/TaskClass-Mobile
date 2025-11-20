@@ -2,7 +2,6 @@ package Data
 
 import Entity.Task
 import Entity.TaskStatus
-import Entity.Course
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -42,6 +41,13 @@ class SharedPrefsTaskManager(private val context: Context) : IDataManagerTask {
         } catch (e: Exception) {
             emptyList()
         }
+    }
+
+    fun saveAll(tasks: List<Task>) {
+        val editor = prefs.edit()
+        val json = gson.toJson(tasks)
+        editor.putString("tasks_list", json)
+        editor.apply()
     }
 
     override fun getById(id: String): Task? = getAll().find { it.Id == id }
